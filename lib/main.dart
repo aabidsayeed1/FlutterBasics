@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const GeekforGeeks());
+void main() => runApp(const TabBarDemo());
 
 class GeekforGeeks extends StatelessWidget {
   const GeekforGeeks({ Key? key }) : super(key: key);
@@ -241,6 +241,44 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ],
         ),
       ),
+    );
+  }
+}
+
+
+// Demo Tabs 
+class TabBarDemo extends StatelessWidget {
+  const TabBarDemo({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DefaultTabController(
+        length: 5,
+         child: Scaffold(
+           appBar:AppBar(
+             title: const Text("Hello Aabid"),
+               backgroundColor: Colors.green,
+             bottom: const TabBar(
+               tabs: [
+                 Tab(icon: Icon(Icons.music_note)),
+                 Tab(icon: Icon(Icons.music_video)),
+                 Tab(icon: Icon(Icons.camera_alt),),
+                 Tab(icon: Icon(Icons.grade),),
+                 Tab(icon: Icon(Icons.email),),
+               ],
+               ),
+               
+           ),
+           body: const TabBarView(children: [
+             Icon(Icons.music_note),
+             Icon(Icons.music_video),
+             Icon(Icons.camera_alt),
+             Icon(Icons.grade),
+             Icon(Icons.email)])
+            ,)
+            ),
     );
   }
 }
