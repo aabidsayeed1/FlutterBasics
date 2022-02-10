@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-void main() => runApp(const HorizontalList());
+import 'package:expansion_tile_card/expansion_tile_card.dart';
+void main() => runApp( ExpansionTileCard1());
 
 class GeekforGeeks extends StatelessWidget {
   const GeekforGeeks({ Key? key }) : super(key: key);
@@ -181,7 +181,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("hello Aabid"),
+        title: const Text("hello Aabid"),
         titleSpacing: 00.0,
         centerTitle: true,
         toolbarHeight: 70.2,
@@ -293,11 +293,32 @@ class HorizontalList extends StatelessWidget {
 
     const title = 'Assalamu Aliakum Aabid';
     return  MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: title,
       home: Scaffold(
         appBar: AppBar(
-         title: const Text(title),
+          leading: IconButton(
+            icon: const Icon(
+              Icons.menu,color: Colors.deepOrange,)
+            ,onPressed: (){},
+            tooltip: 'Menuuu',),
+          actions:  [
+            IconButton(
+              icon: const Icon(
+                Icons.settings,
+                color: Colors.deepOrange),
+                onPressed:(){},
+                tooltip: 'Hello its camera here',),
+            
+          ],
+         title: const Text(title,style: 
+         TextStyle(fontWeight: FontWeight.bold),),
          backgroundColor: Colors.green,
+         shape:
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30)),
+            elevation: 40.0,
+            shadowColor: Colors.red,
          
         ),
         body: Container(
@@ -311,7 +332,7 @@ class HorizontalList extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.all(10),
                 height: 480.0,
-                width: 300.0,
+                width: 350,
                 decoration:  BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
                   image: const DecorationImage(
@@ -339,18 +360,144 @@ class HorizontalList extends StatelessWidget {
                   width: 350.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                 image: const DecorationImage(
+                    image: const DecorationImage(
                     image: NetworkImage('https://wallpaperaccess.com/full/184117.jpg'),
                      fit: BoxFit.fill,
                     ),
                     shape: BoxShape.rectangle,
-                    ),
-                ),
-              
+                   ),
+                ),  
             ],
-
           ),
         ),
+      ),
+    );
+  }
+}
+
+// Expansion Tile Card
+
+class ExpansionTileCard1 extends StatelessWidget {
+  // const ExpansionTileCard1({ Key? key, required Text title, required CircleAvatar leading, required Text subtitle }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Expansion Tile Card",
+      theme: ThemeData(
+        primarySwatch: Colors.green
+        ),
+        home:  const MyHomePage(title : 'Aabid'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  final String title;
+
+  const MyHomePage({ Key? key,required this.title }) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final GlobalKey<ExpansionTileCardState> cardA =  GlobalKey();
+  final GlobalKey<ExpansionTileCardState> cardB =  GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      
+      appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius:BorderRadius.circular(25) ),
+        title: Text(widget.title),
+        elevation: 30,
+        bottomOpacity: 10.0,
+        
+      ),
+      
+      body: ListView(
+        padding: const EdgeInsets.only(top: 10),
+        
+        children: <Widget>[
+          Padding(padding: 
+         const EdgeInsets.symmetric(horizontal : 4.0),
+         
+        child: ExpansionTileCard(
+          baseColor: Colors.pink,
+          expandedColor: Colors.blue,
+          elevation: 50,
+          shadowColor: Colors.black,
+           animateTrailing: false,
+          borderRadius: BorderRadius.circular(20),
+          key: cardA,
+          leading:  CircleAvatar(
+            child: Image.asset('assets/bb.png'),),
+              title: const Text('Tap to Expand!'),
+             subtitle: const Text('It has the GFG Logo.'),
+             children:  [
+               const Divider(
+                 thickness: 10.0,
+                 height: 10.0,
+               ),
+               Align(
+                 
+                 alignment: Alignment.centerLeft,
+                 child: Padding(padding: 
+                 const EdgeInsets.symmetric(
+                   horizontal: 16.0,
+                   vertical: 8.0,
+                 ),
+                  child: Image.asset('assets/aa.jpg')
+                 ),
+               )
+             ], 
+        )  ,
+        
+
+
+
+
+        ),
+        const Divider(
+          thickness: 10,
+          height: 10,
+          color: Colors.blueGrey,
+        ),
+        Padding(padding:const EdgeInsets.symmetric(
+          horizontal: 4.0),
+          child:ExpansionTileCard(
+            expandedColor: Colors.blue,
+            baseColor: Colors.pink,
+            borderRadius: BorderRadius.circular(20),
+            key: cardB,
+            leading: const CircleAvatar(
+              child: Icon(Icons.verified_user),
+              
+            ),
+          title: const Text('tap to Expand'),
+          subtitle: const Text('there is renoldo'),
+          children:  [
+            const Divider(
+              height: 10,
+              thickness: 10,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 8.0,
+                ),
+                child: Image.asset('assets/bb.png'),
+                ),
+            )
+          ],
+        ))
+          
+          ],
       ),
     );
   }
