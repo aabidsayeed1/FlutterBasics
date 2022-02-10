@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const TabBarDemo());
+void main() => runApp(const HorizontalList());
 
 class GeekforGeeks extends StatelessWidget {
   const GeekforGeeks({ Key? key }) : super(key: key);
@@ -279,6 +279,79 @@ class TabBarDemo extends StatelessWidget {
              Icon(Icons.email)])
             ,)
             ),
+    );
+  }
+}
+
+// horizontal List 
+
+class HorizontalList extends StatelessWidget {
+  const HorizontalList({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+
+    const title = 'Assalamu Aliakum Aabid';
+    return  MaterialApp(
+      title: title,
+      home: Scaffold(
+        appBar: AppBar(
+         title: const Text(title),
+         backgroundColor: Colors.green,
+         
+        ),
+        body: Container(
+          
+          padding: const EdgeInsets.all(20),
+          margin: const EdgeInsets.symmetric(vertical: 20.0),
+          height: 800.0,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              Container(
+                margin: const EdgeInsets.all(10),
+                height: 480.0,
+                width: 300.0,
+                decoration:  BoxDecoration(
+                  borderRadius: BorderRadius.circular(30.0),
+                  image: const DecorationImage(
+                    image:
+                    NetworkImage('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNhcnN8ZW58MHx8MHx8&w=1000&q=80'),
+                    fit: BoxFit.fill,
+                    ),
+                    shape: BoxShape.rectangle,
+                    ),
+                ),
+                Container(
+                  height: 480.0,
+                  width: 350.0,
+                  decoration:  BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    image: const DecorationImage(
+                      image:NetworkImage('https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+                       fit: BoxFit.fill),
+                       shape: BoxShape.rectangle,
+                  ),
+                  
+                ),
+                Container(
+                  height:480.0,
+                  width: 350.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                 image: const DecorationImage(
+                    image: NetworkImage('https://wallpaperaccess.com/full/184117.jpg'),
+                     fit: BoxFit.fill,
+                    ),
+                    shape: BoxShape.rectangle,
+                    ),
+                ),
+              
+            ],
+
+          ),
+        ),
+      ),
     );
   }
 }
