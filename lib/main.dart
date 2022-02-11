@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
-void main() => runApp( ExpansionTileCard1());
+void main() => runApp( const DicePage());
 
 class GeekforGeeks extends StatelessWidget {
   const GeekforGeeks({ Key? key }) : super(key: key);
@@ -422,6 +422,10 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.only(top: 10),
         
         children: <Widget>[
+          const Icon(Icons.verified_user,
+               semanticLabel: "Verified",
+              size: 40,
+              ),
           Padding(padding: 
          const EdgeInsets.symmetric(horizontal : 4.0),
          
@@ -456,12 +460,13 @@ class _MyHomePageState extends State<MyHomePage> {
              ], 
         )  ,
         
-
+       
 
 
 
         ),
         const Divider(
+          
           thickness: 10,
           height: 10,
           color: Colors.blueGrey,
@@ -474,7 +479,8 @@ class _MyHomePageState extends State<MyHomePage> {
             borderRadius: BorderRadius.circular(20),
             key: cardB,
             leading: const CircleAvatar(
-              child: Icon(Icons.verified_user),
+              child: Icon(Icons.verified_user,
+              semanticLabel: "Verified",size: 40,),
               
             ),
           title: const Text('tap to Expand'),
@@ -502,3 +508,67 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+//Icon class
+
+// Expanded Class
+
+class DicePage extends StatefulWidget {
+  const DicePage({ Key? key }) : super(key: key);
+
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+
+  
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      
+      
+      home: Scaffold(
+        
+        backgroundColor: Colors.green,
+        appBar: AppBar(title: 
+        const Text('Aabid Expanded class',style: TextStyle(
+          color: Colors.green),
+          ),
+          backgroundColor: Colors.white,
+          ),
+          
+          body: Center(
+            
+            child : Row(
+              
+              children: <Widget> [
+            Expanded(
+              flex: 3,
+              child: TextButton(
+                onPressed: () {  },
+                child: Image.asset('assets/aa.jpg'),
+              ),
+            ),
+            Expanded(
+              flex: 5,
+              child: 
+            TextButton(
+              
+              onPressed: () {},
+              child: 
+                Container(
+                  
+                  transform: Matrix4.rotationZ(0.1),
+                  child: 
+                  Image.asset('assets/bb.png'))
+               )
+               )
+            ],)
+          ) ,
+      ),
+      
+    );
+  }
+}
+  
