@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
-void main() => runApp( const DicePage());
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+// import 'hello.dart';
+
+// welcome to my flutter journay
+// instagram id = aabidsayeed1
+// Name = Aabid
+// M-tech CSE,  flutter developer 
+
+void main() => runApp(  const MyStaggeredGridView());
 
 class GeekforGeeks extends StatelessWidget {
   const GeekforGeeks({ Key? key }) : super(key: key);
@@ -571,4 +581,139 @@ class _DicePageState extends State<DicePage> {
     );
   }
 }
+
+// ProgressIndicator 
+class MyProgressIndicator extends StatelessWidget {
+  const MyProgressIndicator({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: const Text('hello aabid'),
+        backgroundColor:Colors.green ),
+        body: Center(
+          child: Column(
+             mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              CircularProgressIndicator(
+                backgroundColor: Colors.redAccent,
+                valueColor: AlwaysStoppedAnimation(
+                  Colors.green),
+                  strokeWidth: 5,
+                  // value: 0.1,
+
+                  ),
+                  SizedBox(
+                    height: 55,
+                    
+                  ),
+                  LinearProgressIndicator(
+                    backgroundColor: Colors.redAccent,
+                    valueColor:AlwaysStoppedAnimation(Colors.green),
+                    minHeight: 10,
+                    value: 0.7,
+
+
+                  ),
+            ],
+          ),
+        )
+      ),
+    );
+  }
+}
+
+//Staggered Grid View 
+// insert dependencies: 
+//flutter_staggered_grid_view: ^0.6.1
   
+
+class MyStaggeredGridView extends StatelessWidget {
+  const MyStaggeredGridView({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(appBar: AppBar(title: Text('Hello Grid'),
+      ),
+      body: Container(
+      
+        color: Colors.amber,
+        child: StaggeredGrid.count(
+  crossAxisCount: 4,
+  mainAxisSpacing: 4,
+  crossAxisSpacing: 4,
+  children:  [
+    StaggeredGridTile.count(
+      crossAxisCellCount: 4,
+      mainAxisCellCount: 4,
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20)),
+        child: Image.network(
+          'https://picsum.photos/seed/image005/500/600',
+          fit: BoxFit.fill,)),
+    ),
+    StaggeredGridTile.count(
+      crossAxisCellCount: 2,
+      mainAxisCellCount: 2,
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20)),
+        child: Image.network(
+          
+        'https://picsum.photos/seed/image001/500/500',
+        fit: BoxFit.fill,)),
+    ),
+    StaggeredGridTile.count(
+      crossAxisCellCount: 2,
+      mainAxisCellCount: 2,
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20)),
+        child: Image.network(
+          'https://picsum.photos/seed/image002/500/800',
+          fit: BoxFit.fill,)),
+    ),
+    StaggeredGridTile.count(
+      crossAxisCellCount: 2,
+      mainAxisCellCount: 2,
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20)),
+        child: Image.network(
+          'https://picsum.photos/seed/image003/500/300',
+          fit: BoxFit.fill,)),
+    ),
+    StaggeredGridTile.count(
+      crossAxisCellCount: 2,
+      mainAxisCellCount: 2,
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20)),
+        elevation: 50,
+        shadowColor: Colors.black,
+
+        child: Image.network(
+          'https://picsum.photos/seed/image007/500/400',
+          fit: BoxFit.fill,),
+          
+          
+          
+          ),
+    ),
+  ],
+),
+      ),
+      ),
+      
+    );
+  }
+}
