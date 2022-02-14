@@ -3,6 +3,13 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+import 'pages/google_fonts.dart';
+import 'pages/lazy_loader.dart';
+import 'pages/orientation_builder.dart';
+import 'pages/route_transition.dart';
+import 'pages/skeleton_text.dart';
+import 'pages/themes.dart';
+
 // import 'hello.dart';
 
 // welcome to my flutter journay
@@ -10,7 +17,14 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 // Name = Aabid
 // M-tech CSE,  flutter developer 
 
-void main() => runApp(  const MyStaggeredGridView());
+// void main() => runApp(  const MyrouteTransition());
+
+main() {
+  runApp(MaterialApp(
+    home: MyRouteTransition(),
+  ));
+}
+
 
 class GeekforGeeks extends StatelessWidget {
   const GeekforGeeks({ Key? key }) : super(key: key);
@@ -636,6 +650,7 @@ class MyStaggeredGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(appBar: AppBar(title: Text('Hello Grid'),
       ),
       body: Container(
