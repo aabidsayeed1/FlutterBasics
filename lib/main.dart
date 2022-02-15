@@ -4,6 +4,7 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'pages/google_fonts.dart';
+import 'pages/hero_animation.dart';
 import 'pages/lazy_loader.dart';
 import 'pages/orientation_builder.dart';
 import 'pages/route_transition.dart';
@@ -21,7 +22,7 @@ import 'pages/themes.dart';
 
 main() {
   runApp(MaterialApp(
-    home: MyRouteTransition(),
+    home: RadialExpansionDemo(),
   ));
 }
 
