@@ -5,11 +5,15 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'pages/google_fonts.dart';
 import 'pages/hero_animation.dart';
+import 'pages/hinge_animation.dart';
 import 'pages/lazy_loader.dart';
+import 'pages/lottie_animation.dart';
 import 'pages/orientation_builder.dart';
+import 'pages/physics_card_simulation.dart';
 import 'pages/route_transition.dart';
 import 'pages/skeleton_text.dart';
 import 'pages/themes.dart';
+
 
 // import 'hello.dart';
 
@@ -22,7 +26,7 @@ import 'pages/themes.dart';
 
 main() {
   runApp(MaterialApp(
-    home: RadialExpansionDemo(),
+    home: PhysicsCardDragDemo(),
   ));
 }
 
@@ -36,7 +40,7 @@ class GeekforGeeks extends StatelessWidget {
       title: 'GeekforGeeks',
       theme: ThemeData(primarySwatch: Colors.green),
       debugShowCheckedModeBanner: false,
-      home:
+      home: 
       //  MyStatefulWidget(),
       Scaffold(
         

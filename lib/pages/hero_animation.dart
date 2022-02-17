@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
 class Photo extends StatelessWidget {
+  
+
   const Photo({
     Key? key,
     required this.photo,
@@ -78,7 +80,9 @@ static Widget _buildPage(BuildContext context, String imageName, String descript
 	color: Theme.of(context).canvasColor,
 	child: Center(
 		child: Card(
-		elevation: 8.0,
+      color:Colors.red,
+		elevation: 30.0,
+    shadowColor: Colors.black,
 		child: Column(
 			mainAxisSize: MainAxisSize.min,
 			children: [
@@ -156,7 +160,7 @@ Widget _buildHero(BuildContext context, String imageName, String description) {
 @override
 Widget build(BuildContext context) {
 	// animation speed.
-	timeDilation = 10.0;
+	timeDilation = 2.0;
 
 	return Scaffold(
 	appBar: AppBar(
