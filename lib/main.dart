@@ -5,6 +5,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:helloflutter/pages/url.dart';
 
 import 'pages/form_validation.dart.dart';
+import 'pages/gallery_access.dart';
 import 'pages/gestures.dart';
 import 'pages/google_fonts.dart';
 import 'pages/hero_animation.dart';
@@ -19,6 +20,7 @@ import 'pages/themes.dart';
 import 'pages/web_sockets.dart';
 
 
+
 // import 'hello.dart';
 
 // welcome to my flutter journay
@@ -30,14 +32,11 @@ import 'pages/web_sockets.dart';
 
 main() {
   runApp( 
-    const MyWebSocket()
-  //   MaterialApp(
-  //   home: MyWebSocket(),
-  // ));
-
-
-
-  );}
+  
+     MaterialApp(
+    home: MyHomePageMy(),
+  ));
+  }
 
 
 class GeekforGeeks extends StatelessWidget {
